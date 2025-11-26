@@ -79,7 +79,7 @@ Weakness:
 
 -Knowledge learned from one task is not transferred to another.
 
-##DreamCoder
+## DreamCoder
 
 Strength:
 
@@ -93,9 +93,9 @@ Handcrafted DSL means a lot of human engineering is required to get started. Thi
 
 I decided to combine these two ideas: using LLMs to generate programs in Python (a Turing-complete language), growing system expertise by adding promising programs to a library, and including the current best program from the library in the LLM prompt to search for a better solution.
 
-#My Approach
+# My Approach
 
-##Architecture
+## Architecture
 
 Starting from an empty library, my system loops through each task to prompt an LLM for Python program(s) that can solve all of the training examples. I used the same prompt as Jeremy Berman and Ryan Greenblat which requires the LLM to perform Chain-of-Thought (CoT) reasoning. Each input/output grid is represented in multiple formats, namely grid dimensions, Base64 image encoding, ASCII and Python nested list. One addition I made is including in the prompt the current best program in the library. My system computes a primary accuracy score (how many correct training examples) and a secondary accuracy score (average cell-level accuracy on the training examples) for every program in the library on a task, and includes the best one in the prompt (first sort by primary score; tie-break by secondary score).
 
@@ -115,7 +115,7 @@ Notice there are several differences between my approach and DreamCoder:
 
 4. Sleep (Dreaming): recognition model is now part heuristics score and part LLM. This stage is skipped because no model weights have to be updated
 
-##Experiment
+## Experiment
 
 I experimented with LLM choice, prompt format, and program selection heuristics on 40 randomly selected ARC-AGI-1 training tasks. The system ran for five rounds with the LLM generating one program per task.
 
@@ -129,7 +129,7 @@ I experimented with LLM choice, prompt format, and program selection heuristics 
 
 Based on the experiments and [Grok-4's outperformance](https://arcprize.org/leaderboard) on the leaderboard, I decided to use Grok-4 with program output difference, score-weighted program selection, and two selected programs in the prompt for the final submission run.
 
-##Result
+## Result
 
 In order to teach the system Core Knowledge, I first ran it on the ARC-AGI-2 public training set of 1,000 tasks with parameters of 1 round and 1 program generated per task. This training seeded the library with 538 programs (note: this is fewer than 1,000 because the API sometimes timed out or returned invalid programs). Next, the system was run on the semi-private set for 2 rounds. In each round, 5 programs were generated per task.
 
