@@ -41,7 +41,7 @@ This approach, together with [Ryan Greenblat](https://blog.redwoodresearch.org/p
 
 ## DreamCoder
 
-While researching how to address this limitation, I came across a 2020 paper D[reamCoder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/abs/2006.08381). DreamCoder is a neurosymbolic program synthesizer that solves tasks (defined as input/output pairs) by iteratively building up a library of programs. Starting from a library of primitives (think axiomatic functions) defined by a Domain-Specific Language (DSL), DreamCoder uses a "wake-sleep" algorithm to alternate between 1) generating programs with a neural network (recognition model) and the library to attempt tasks and 2) growing the library with more advanced programs and improving the recognition model.
+While researching how to address this limitation, I came across a 2020 paper [DreamCoder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/abs/2006.08381). DreamCoder is a neurosymbolic program synthesizer that solves tasks (defined as input/output pairs) by iteratively building up a library of programs. Starting from a library of primitives (think axiomatic functions) defined by a Domain-Specific Language (DSL), DreamCoder uses a "wake-sleep" algorithm to alternate between 1) generating programs with a neural network (recognition model) and the library to attempt tasks and 2) growing the library with more advanced programs and improving the recognition model.
 
 DreamCoder has one stage in the Wake phase and two stages in the Sleep phase:
 
